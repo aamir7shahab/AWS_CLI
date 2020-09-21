@@ -113,7 +113,7 @@ echo "Launching an EC2 Instance..."
 launch_instance_response=$(aws ec2 run-instances --image-id "$UBUNTU_1804_AMI" \
 					 --count 1 \
 					 --instance-type "$INSTANCE_TYPE" \
-					 --key-name AamirAWSKey \
+					 --key-name YourpemKey \
 					 --security-group-ids "$group_id" \
 					 --subnet-id "$subnet_id" \
 					 --output json \
@@ -137,8 +137,8 @@ echo "Instances State: $instance_state"
 echo "Public IP: $public_ip"
 
 # if [[ "$instance_state" == "running" ]]; then
-# 	ssh ubuntu@"$public_ip" -i "AamirAWSKey.pem"
+# 	ssh ubuntu@"$public_ip" -i ".pem"
 # elif [[ "$instance_state" != "running" ]]; then
 # 	sleep 60;
-# 	ssh ubuntu@"$public_ip" -i "AamirAWSKey.pem"
+# 	ssh ubuntu@"$public_ip" -i ".pem"
 # fi
